@@ -1,0 +1,26 @@
+PROGRAM simpleAddToCart
+
+  FUNCTION AddToCart (name, price)
+  store "product" with [name,price]
+  RETURN "product"
+  END FUNCTION
+
+  FUNCTION TotalPrice (shoppingCart)
+    READ AND WRITE "sum" with number
+    FOR "i" from 1 in "shoppingCart"
+      STORE "sum" with "shoppingCart"["i", 1]
+    END FOR
+    return "sum"
+  END FUNCTION
+
+  READ AND WRITE "name" with string
+  READ AND WRITE "price" with number
+  READ AND WRITE "cart" with array
+  READ AND WRITE "totalHarga" with number
+
+  STORE "cart" with AddToCart(name, price)
+
+  // once user done adding product to cart
+  STORE "totalHarga" with TotalPrice(cart)
+  PRINT "totalHarga"
+
